@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Word Mem</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  <body>
+    <h1 th:text=${user.getUsername()}></h1>
+    <form method="POST" th:action="@{/addword}" th:object=${user}>
+        <input type="hidden" th:field="*{username}"/>
+        <input type="text" th:field="*{newWord}"/>
+        <button type="submit">Add</button>  
+    </form>
+
+    <p th:if="${repeat}">Word has been entered!</p>
+    <form method="GET" th:action="@{/practice}">
+      <input type="submit" value="Practice!"/>
+    </form>
+    <form method="POST" th:action="@{/logout}">
+        <input type="submit" value="Logout"/>
+    </form>
+  </body>
+</html>

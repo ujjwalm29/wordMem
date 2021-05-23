@@ -1,0 +1,1 @@
+create table if not exists words (id serial, username varchar(30) not null, word varchar(30) not null);
