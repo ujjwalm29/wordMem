@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import wordmem.web.User;
+import wordmem.web.UserWords;
 import wordmem.web.data.JdbcWordsRepository;
 
 @Controller
@@ -19,8 +19,8 @@ public class AddWord {
     private final JdbcWordsRepository wordRepo;
 
     @ModelAttribute(name = "user")
-    public User user() {
-        return new User();
+    public UserWords user() {
+        return new UserWords();
     }
 
     @Autowired
@@ -29,9 +29,10 @@ public class AddWord {
     }
 
     @PostMapping()
-    public String addWordInUserList(Model model, @ModelAttribute User user) {
+    public String addWordInUserList(Model model, @ModelAttribute UserWords user) {
         System.out.println("The model in AddWord is  : " + user);
-        wordRepo.save(user);
+        if (user.getNewWord() != null)
+            wordRepo.save(user);
         model.addAttribute("repeat", true);
         return "userHome";
     }

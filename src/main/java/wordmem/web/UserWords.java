@@ -7,8 +7,9 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class User {
+public class UserWords {
     private String username;
+    private String email;
     private List<String> wordList;
     private String newWord;
 }

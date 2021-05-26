@@ -24,7 +24,7 @@
 
 Preparing for GRE vocab is tough. There are hundreds and thousands of words to remember for the exam. A lot of times when we try and memorize a bunch of words in a list, our memory gets trained to recollect words only in the order that was present in the original list. This is a challenge.
 
-To overcome this, the use of flashcards is recommended. Digital form of flashcards is available as an app. But it does not have the feature to make your own word list. In my case, while preparing for GRE, I had to cut some paper and make my own physical cards to remember words. It was a tedious task and managing them was a challenge. Isn't there any platform in which a user can enter their own word list and practice them in a randomized order?
+To overcome this, the use of flashcards is recommended. Digital form of flashcards is available as an app. But it does not have the feature to make your own word list. Some people cut pieces of paper and make their own physical cards to remember words. It is a tedious task and managing them is a challenge. Isn't there any platform in which a user can enter their own word list and practice them in a randomized order?
 
 Enter WordMem.
 
@@ -38,15 +38,19 @@ Right now the app is extremely basic. It is not hosted anywhere. Hence, you will
 
 The web app uses Spring framework and Postgres as of now to work. Configure the application.properties with the relevant variables to connect to postgres. Use an IDE to start the development server and go ahead and use it.
 
+## Current Features
+
+- User Registration with email confirmation
+- User can add words.
+- User can practice Words
+
 ## Features to be added ( in no particular order ) :
 
-- Sign Up - Login auth
-- Randomize Word List
+- Sign Up - Login auth --- DONE
+- Randomize Word List -- DONE
 - Better UI
 - Host the project
 - Get Meanings of the words
 - Classify words as 'Remember' and 'Don't remember'
 - Add Tests ( Dev )
 - Get a mobile version
-
-Note : This project is for me to practice basics of spring. Feel free to suggest a change or to add something to this. Much appreciated!

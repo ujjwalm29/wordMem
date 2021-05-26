@@ -1,6 +1,8 @@
 package wordmem.web.controllers;
 
 import java.security.Principal;
+import java.util.Collections;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import wordmem.web.User;
+import wordmem.web.UserWords;
 import wordmem.web.data.JdbcWordsRepository;
 
 @Controller
@@ -22,8 +24,8 @@ public class PracticeWords {
     String userName = null;
 
     @ModelAttribute(name = "user")
-    public User user() {
-        return new User();
+    public UserWords user() {
+        return new UserWords();
     }
 
     @Autowired
@@ -35,9 +37,12 @@ public class PracticeWords {
     public String displayWords(Model model, Principal principal) {
         userName = principal.getName();
         System.out.println("User in Practice is = " + userName);
-        User user = new User();
+        UserWords user = new UserWords();
         user.setUsername(userName);
         user = wordRepo.findAllWords(user);
+        List<String> temp = user.getWordList();
+        Collections.shuffle(temp);
+        user.setWordList(temp);
         model.addAttribute("user", user);
 
         return "practice";

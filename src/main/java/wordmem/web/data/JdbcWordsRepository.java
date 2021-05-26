@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import wordmem.web.User;
+import wordmem.web.UserWords;
 
 @Repository
 public class JdbcWordsRepository implements WordsRepository {
@@ -19,15 +19,14 @@ public class JdbcWordsRepository implements WordsRepository {
     }
 
     @Override
-    public User save(User user) {
+    public void save(UserWords user) {
         String query = "INSERT INTO words (username,word) VALUES ('" + user.getUsername() + "','" + user.getNewWord()
                 + "');";
         jdbc.execute(query);
-        return null;
     }
 
     @Override
-    public User findAllWords(User user) {
+    public UserWords findAllWords(UserWords user) {
         String query = "SELECT word FROM words WHERE username = '" + user.getUsername() + "'";
 
         List<String> words = jdbc.queryForList(query, String.class);

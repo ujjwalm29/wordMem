@@ -1,12 +1,10 @@
 package wordmem.web.data;
 
-import java.util.List;
-
-import wordmem.web.User;
+import wordmem.web.UserWords;
 
 public interface WordsRepository {
 
-    User save(User user);
+    void save(UserWords user);
 
-    User findAllWords(User user);
+    UserWords findAllWords(UserWords user);
 }
